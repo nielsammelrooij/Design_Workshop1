@@ -16,7 +16,7 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody>();
     }
 
-    void OnMove(InputValue movementValue) 
+    void OnMove(InputValue movementValue)
     {
         Vector2 movementVector = movementValue.Get<Vector2>();
         movementX = movementVector.x;
@@ -24,14 +24,23 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    void FixedUpdate(){
+    void OnFire()
+    {
+        Vector3 jump = new Vector3(0.0f, 200.0f, 0.0f);
+        GetComponent<Rigidbody>().AddForce(jump);
+    }
+
+    void FixedUpdate()
+    {
         Vector3 movement = new Vector3(movementX, 0.0f, movementY);
         rb.AddForce(movement * speed);
     }
 
-    void OnTriggerEnter(Collider other) {
-        if(other.gameObject.CompareTag("PickUp")){
-        other.gameObject.SetActive(false);
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("PickUp"))
+        {
+            other.gameObject.SetActive(false);
         }
     }
 }
