@@ -5,6 +5,7 @@ public class ClickToMove : MonoBehaviour
     private Vector3 _targetPosition;
     private Vector3 _velocity;
 
+    public float floatHeight;
     public float smoothTime;
     public float speed;
 
@@ -13,7 +14,7 @@ public class ClickToMove : MonoBehaviour
         Ray ray = Camera.main!.ScreenPointToRay(Input.mousePosition);
         if (Physics.Raycast(ray, out RaycastHit hit))
         {
-            _targetPosition = new Vector3(hit.point.x, hit.point.y + 0.5f, hit.point.z);
+            _targetPosition = new Vector3(hit.point.x, hit.point.y + floatHeight, hit.point.z);
         }
     }
 
