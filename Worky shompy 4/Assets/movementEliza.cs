@@ -21,11 +21,15 @@ public class movementEliza : MonoBehaviour
     {
         var step = speed * Time.deltaTime; // calculate distance to move
 
-        if (Vector3.Distance(transform.position, target.position) > 2.001f)
+        if (Vector3.Distance(transform.position, target.position) < 5.001f)
         {
-            // Swap the position of the cylinder.
-            transform.position = Vector3.MoveTowards(transform.position, target.position, step);
 
+            if (Vector3.Distance(transform.position, target.position) > 1.001f)
+            {
+                // Swap the position of the cylinder.
+                transform.position = Vector3.MoveTowards(transform.position, target.position, step);
+
+            }
         }
 
 

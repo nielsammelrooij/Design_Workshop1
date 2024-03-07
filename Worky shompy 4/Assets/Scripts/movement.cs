@@ -6,6 +6,7 @@ public class movement : MonoBehaviour
 {
     public Rigidbody Rigidbody;
     public float movementSpeed;
+    public float rotationSpeed;
     // Start is called before the first frame update
     void Start()
     {
@@ -28,12 +29,12 @@ public class movement : MonoBehaviour
         if (Input.GetKey("d"))
         {
             Debug.Log("D key was pressed");
-            transform.Rotate(new Vector3(0, 1, 0) * Time.deltaTime * (5 * movementSpeed), Space.World);
+            transform.Rotate(new Vector3(0, 1, 0) * Time.deltaTime * (10 * rotationSpeed), Space.World);
         }
         if (Input.GetKey("a"))
         {
             Debug.Log("A key was pressed");
-            transform.Rotate(new Vector3(0, -1, 0) * Time.deltaTime * (10 * movementSpeed), Space.World);
+            transform.Rotate(new Vector3(0, -1, 0) * Time.deltaTime * (10 * rotationSpeed), Space.World);
         }
 
     }
